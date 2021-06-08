@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.text {
+  text-align: center;
+  color: rgb(87, 17, 17);
+}
+
+#shop-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.cake-image {
+  width: 200px;
+  height: 200px;
+}
+
+.cake {
+  margin: 20px;
+}
+.list {
+  display: flex; /* allows us to use Flexbox */
+  align-items: center;
+  justify-content: center;
+}
