@@ -22,6 +22,7 @@ export const ShopImage = styled.img`
   margin-left: auto;
   margin-right: auto;
   width:350px;
+  padding-bottom:30px;
 `;
 
 export const ListWrapper = styled.div`
@@ -33,13 +34,15 @@ export const ListWrapper = styled.div`
 export const CakeWrapper = styled.div`
   margin: 20px;
   img {
-    width: 200px;
+    border: 3px solid #000000;
+    width: 220px;
     height: 200px;
   }
   p {
     text-align: center;
     font-weight: bold;
     font-style: oblique;
+    g
     &.cookie-price {
       color: ${(props) => props.theme.mainColor};
     }
