@@ -1,6 +1,6 @@
 import cakes from "../cakes";
 import CakeItem from "./CakeItem"
-
+import { ListWrapper } from "../styles";
 
 const CakeList =() => {
 
@@ -8,7 +8,7 @@ const CakeList =() => {
         <CakeItem name= {cake.name} price={cake.price} image={cake.image}  />  
 
     ));
-    return <div>{cakeList}</div>
+    return <ListWrapper>{cakeList}</ListWrapper>
 };
 export default CakeList;
 
