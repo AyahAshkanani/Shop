@@ -28,13 +28,7 @@ function App() {
     if(currentTheme === "light") setCurrentTheme("dark");
   else setCurrentTheme("light");
   }
-  const setView=() => {
-    return cake? (
-    <CakeDetail cake={cake} />
-    ) : (
-    <CakeList setCake={setCake} />
-    );
-  };
+ 
   
   return(
     <div>
@@ -46,8 +40,7 @@ function App() {
           <Description>A place where you can taste a piece of heaven</Description>
           <ShopImage alt="shop" src={shopImage}/>
         </div>
-        {setView()}
-        {/* <CakeList /> */}
+        {cake? <CakeDetail cake={cake} />: <CakeList setCake={setCake} />}
       </ThemeProvider>   
     </div>
   );
