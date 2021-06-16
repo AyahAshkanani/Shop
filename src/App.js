@@ -11,10 +11,12 @@ const theme = {
   light: {
     mainColor:"#4d516d",
     backgroundColor:"lavender",
+    red:"red",
   },
   dark: {
     mainColor:"lavender",
     backgroundColor:"#4d516d", 
+    red:"red",
   },
 
  
@@ -23,6 +25,14 @@ function App() {
 
   const[currentTheme, setCurrentTheme]= useState("light");
   const[cake, setCake]=useState(null);
+  const[_cakes, setCakes]= useState("cakes");
+
+  const handleDelete =(cakeId) =>{
+     const updatedCakes =_cakes.filter(cake => cake.id !== cakeId);
+     setCakes(updatedCakes);
+
+  };
+
 
   const toggleTheme=()=>{
     if(currentTheme === "light") setCurrentTheme("dark");
@@ -40,7 +50,7 @@ function App() {
           <Description>A place where you can taste a piece of heaven</Description>
           <ShopImage alt="shop" src={shopImage}/>
         </div>
-        {cake? <CakeDetail cake={cake} />: <CakeList setCake={setCake} />}
+        {cake? <CakeDetail cake={cake} setCake={setCake} handleDelete={handleDelete} />: <CakeList setCake={setCake} cakes ={_cakes} handleDelete={handleDelete} />}
       </ThemeProvider>   
     </div>
   );

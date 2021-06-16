@@ -6,15 +6,16 @@ import SearchBar from "./SearchBar";
 import { ListWrapper } from "../styles";
 //useState
 import { useState } from "react";
-const CakeList =({setCake}) => {
+const CakeList =({cake, setCake, props}) => {
 
     const[query, setQuery]= useState("");
-
-    const cakeList= cakes.filter((cake)=> cake.name.toLowerCase().includes(query.toLowerCase()))
+ 
+    const cakeList= props.cakes.filter((cake)=> cake.name.toLowerCase().includes(query.toLowerCase()))
     .map((cake)=>(
     <CakeItem 
     cake={cake}
     setCake={setCake}
+    handleDelete={props.handleDelete}
     />
     ));
         
