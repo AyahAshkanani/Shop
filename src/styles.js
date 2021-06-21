@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -7,17 +8,42 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
+export const NavStyled = styled.nav`
+background-color: ${(props) => props.theme.backgroundColor};
+`;
+
+
+
+export const NavLinkStyled = styled(NavLink)`
+margin:10px;
+
+&.active{
+  color: ${(props) => props.theme.red};
+}
+`;
+
+export const Logo = styled(Link)`
+padding: 0.75em;
+
+img{
+  width:8rem;
+}
+
+`;
+
 export const Title = styled.h1`
   text-align: center;
   font-style:italic;
   font-size:75px;
   margin-top: -25px;
+  padding-top: 4%;
 `;
 
 export const Description = styled.h4`
   text-align: center;
   margin-top: -30px;
   margin-bottom:30px;
+  padding-top:1%;
 `;
 
 export const ShopImage = styled.img`

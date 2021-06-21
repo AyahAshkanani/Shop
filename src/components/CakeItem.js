@@ -1,14 +1,15 @@
-import { CakeWrapper, DeleteButtonStyled } from "../styles";
+import { CakeWrapper,} from "../styles";
+// DeleteButtonStyled 
 import DeleteButton from "./buttons/DeleteButton";
-  const CakeItem = ({cake, setCake}) => {
+  const CakeItem = (props) => {
     
     return (
       <CakeWrapper>
-        <img  onClick={() => setCake(cake)}
-         src={cake.image} alt={cake.name}  />
-        <p>{cake.name}</p>
-        <p className="cake-price">{cake.price} KD</p>
-        <DeleteButton handleDelete = {cake.handleDelete} cakeId = {cake.id} setCake = {setCake} />
+        <img  onClick={() => props.setCake(props.cake)}
+         src={props.cake.image} alt={props.cake.name}  />
+        <p>{props.cake.name}</p>
+        <p className="cake-price">{props.cake.price} KD</p>
+        <DeleteButton handleDelete = {props.handleDelete} cakeId = {props.cake.id} setCake = {props.setCake} />
       </CakeWrapper>
       
     );
