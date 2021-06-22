@@ -10,7 +10,6 @@ import cakes from "./cakes";
 import { GlobalStyle} from "./styles";
 import { ThemeProvider } from "styled-components";
 
-
 //use state
 import { useState } from "react";
 
@@ -46,49 +45,28 @@ function App() {
 
   };
 
-
   const toggleTheme=()=>{
     if(currentTheme === "light") setCurrentTheme("dark");
   else setCurrentTheme("light");
   }
-
-  // const setView=()=>{
-  //   return cake? (
-  //     <CakeDetail cake={cake} setCake={setCake} cakeDelete={cakeDelete}/>
-
-  //   ):(
-  //     <CakeList setCake={setCake} cakes={_cakes} cakeDelete={cakeDelete}/>
-  //   );
-  //   ;
-  // };
- 
-  
   return(
     <div>
       <ThemeProvider theme ={theme[currentTheme]}>
         <GlobalStyle />
 
         <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme}/>
-        {/* 
-        Restful API design
-        list of menu: /menu
-        detail of cakes with ID 1: /menu/1
-        */}
-
         <Switch>
         <Route path="/menu/:cakeSlug">
 
-        <CakeDetail cakes={_cakes} setCake={setCake} handleDelete={handleDelete}/>
+          <CakeDetail cakes={_cakes} setCake={setCake} handleDelete={handleDelete}/>
 
         </Route>
           <Route path="/menu">
-
-          <CakeList setCake={setCake} cakes ={_cakes} handleDelete={handleDelete} />
-          
+            <CakeList setCake={setCake} cakes ={_cakes} handleDelete={handleDelete} />
           </Route>
 
           <Route exact path ="/">
-          <Home />
+            <Home />
           </Route>
 
         </Switch>
