@@ -2,6 +2,7 @@ const cakes = [
     {
       id: 1,
       name: "TASTE OF JOY ",
+      slug:"taste-of-joy",
       price: 16.5,
       description:"No bake cheesecake with fresh blueberry sauce and lemon zest (in an oval glass) ",
       image:
@@ -10,6 +11,7 @@ const cakes = [
     {
       id: 2,
       name: "CHOCOLATE HEAVEN ",
+      slug:"chocolate-heaven",
       price: 14.5,
       description:"Chocolate brownie with chunks of dark & milk chocolate and walnuts",
       image:
@@ -18,6 +20,7 @@ const cakes = [
     {
       id: 3,
       name: "HOME MADE PEANUT BUTTER",
+      slug:"home-made-peanut-butter",
       price: 4.5,
       description:"100%organic peanut butter in a jar",
       image:

@@ -15,7 +15,18 @@ background-color: ${(props) => props.theme.backgroundColor};
 
 
 export const NavLinkStyled = styled(NavLink)`
-margin:10px;
+margin: 1.25em;
+padding:1.25em 1em;
+padding-left:3%;
+padding-right:3%;
+border-radius: 30px;
+font-size:130%;
+text-align: center;
+margin-left: 1100px;
+border: 3px solid #808080;
+background-color:${(props) => props.theme.mainColor} ;
+
+
 
 &.active{
   color: ${(props) => props.theme.red};
@@ -33,6 +44,7 @@ img{
 
 export const Title = styled.h1`
   text-align: center;
+  font-weight: bold;
   font-style:italic;
   font-size:75px;
   margin-top: -25px;
@@ -40,10 +52,11 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.h4`
+  font-style:italic;
   text-align: center;
   margin-top: -30px;
   margin-bottom:30px;
-  padding-top:1%;
+  padding-top:3%;
 `;
 
 export const ShopImage = styled.img`
@@ -85,9 +98,12 @@ export const ThemeButton = styled.button`
 font-size:1em;
 margin: 1.25em;
 padding:1.25em 1em;
-border-radius: 3px;
+padding-left:3%;
+padding-right:3%;
+border-radius: 30px;
 background-color:${(props) => props.theme.mainColor} ;
 color:${(props) => props.theme.backgroundColor} ;
+margin-left:50px;
 `;
 
 export const SearchBarStyled = styled.input`

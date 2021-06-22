@@ -1,4 +1,4 @@
-import cakes from "../cakes";
+
 //components
 import CakeItem from "./CakeItem"
 import SearchBar from "./SearchBar";
