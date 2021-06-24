@@ -17,17 +17,18 @@ margin-left: 84%;
 
 
 export const CreateButtonStyled = styled.button`
-background-color: ${(props) => props.theme.backgroundColor};
-margin-top: 3%;
-padding-left: 2%;
-padding-right: 2%;
-padding-top: 0.5%;
-padding-bottom: 0.5%;
-margin-left: 30px;
-border-radius: 30px;
-font-size:130%;
+color: ${(props) => props.theme.backgroundColor};
+backgorund-color: ${(props) => props.theme.mainColor};
+width:100px;
+margin-top: 10px;
+padding: 2px;
+border-radius: 5px;
+margin-top: 10px;
 `;
 
+export const UpdateButtonStyled = styled.p`
+color: ${(props) => props.theme.pink};
+`;
 
 // export const Adding = styled.form`
 // background-color: ${(props) => props.theme.grey};

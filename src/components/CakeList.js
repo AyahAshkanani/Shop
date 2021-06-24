@@ -1,14 +1,18 @@
 //MobX
 import cakeStore from "../stores/cakeStore";
 import { observer } from "mobx-react";
+
 //components
 import CakeItem from "./CakeItem"
 import SearchBar from "./SearchBar";
 import CakeModal from "./modals/CakeModal";
+
 //styles
 import { ListWrapper, AiFillPlusCircleStyled } from "../styles";
+
 //useState
 import { useState } from "react";
+
 const CakeList = () => {
 
     const [query, setQuery] = useState("");

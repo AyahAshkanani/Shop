@@ -6,21 +6,25 @@ import { useState } from "react";
 import cakeStore from "../../stores/cakeStore";
 
 const CakeModal = (props) => {
-    const [cake, setCake] = useState({
-        name: "",
-        price: 0,
-        description: "",
-        image: "",
-    });
+    const [cake, setCake] = useState(
+        props.oldCake
+            ? props.oldCake
+            : {
+                name: "",
+                price: 0,
+                description: "",
+                image: "",
+            });
 
     const handleChange = (event) => {
         setCake({ ...cake, [event.target.name]: event.target.value });
-        console.log(cake);
+        //lazm shy hni chna
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        cakeStore.cakeCreate(cake);
+        if (props.oldCake) cakeStore.cakeUpdate(cake);
+        else cakeStore.cakeCreate(cake);
         props.closeModal();
     };
     return (
@@ -39,6 +43,7 @@ const CakeModal = (props) => {
                                 type="text"
                                 onChange={handleChange}
                                 name="name"
+                                value={cake.name}
                             />
                         </div>
                         <div className="col-6">
@@ -49,6 +54,7 @@ const CakeModal = (props) => {
                                 min="1"
                                 onChange={handleChange}
                                 name="price"
+                                value={cake.price}
                             />
                         </div>
                     </div>
@@ -59,6 +65,7 @@ const CakeModal = (props) => {
                             type="text"
                             onChange={handleChange}
                             name="description"
+                            value={cake.description}
                         />
                     </div>
                     <div className="form-group">
@@ -68,9 +75,10 @@ const CakeModal = (props) => {
                             type="text"
                             onChange={handleChange}
                             name="image"
+                            value={cake.image}
                         />
                     </div>
-                    <CreateButtonStyled> Add </CreateButtonStyled>
+                    <CreateButtonStyled> {props.oldCake ? "Update" : "Add"} </CreateButtonStyled>
                 </form>
             </Modal>
         </div>

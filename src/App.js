@@ -17,13 +17,13 @@ import { Route, Switch } from "react-router";
 
 const theme = {
   light: {
-    mainColor: "#a5a58d",
-    backgroundColor: "#e9edc9",
+    mainColor: "#006d77",
+    backgroundColor: "#83c5be",
     red: "red",
   },
   dark: {
-    mainColor: "#e9edc9",
-    backgroundColor: "#a5a58d",
+    mainColor: "#83c5be",
+    backgroundColor: "#006d77",
     red: "red",
   },
 };
