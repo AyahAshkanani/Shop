@@ -107,7 +107,7 @@ export const CakeWrapper = styled.div`
   img {
     border: 3px solid #000000;
     width: 220px;
-    height: 200px;
+    height: 250px;
     border-radius: 10px;
   }
   p {
