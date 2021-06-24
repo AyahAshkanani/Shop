@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -8,10 +9,34 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
+
+export const AiFillPlusCircleStyled = styled(AiFillPlusCircle)`
+color: ${(props) => props.theme.mainColor};
+margin-left: 84%;
+`;
+
+
+export const CreateButtonStyled = styled.button`
+background-color: ${(props) => props.theme.backgroundColor};
+margin-top: 3%;
+padding-left: 2%;
+padding-right: 2%;
+padding-top: 0.5%;
+padding-bottom: 0.5%;
+margin-left: 30px;
+border-radius: 30px;
+font-size:130%;
+`;
+
+
+// export const Adding = styled.form`
+// background-color: ${(props) => props.theme.grey};
+// `;
+
+
 export const NavStyled = styled.nav`
 background-color: ${(props) => props.theme.backgroundColor};
 `;
-
 
 
 export const NavLinkStyled = styled(NavLink)`
@@ -25,22 +50,20 @@ text-align: center;
 margin-left: 1100px;
 border: 3px solid #808080;
 background-color:${(props) => props.theme.mainColor} ;
-
-
-
 &.active{
   color: ${(props) => props.theme.red};
 }
 `;
 
+
 export const Logo = styled(Link)`
 padding: 0.75em;
-
 img{
   width:8rem;
+  
 }
-
 `;
+
 
 export const Title = styled.h1`
   text-align: center;
@@ -51,6 +74,7 @@ export const Title = styled.h1`
   padding-top: 4%;
 `;
 
+
 export const Description = styled.h4`
   font-style:italic;
   text-align: center;
@@ -58,6 +82,7 @@ export const Description = styled.h4`
   margin-bottom:30px;
   padding-top:3%;
 `;
+
 
 export const ShopImage = styled.img`
   display: block;
@@ -69,11 +94,13 @@ export const ShopImage = styled.img`
   border-radius: 30px;
 `;
 
+
 export const ListWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
 `;
+
 
 export const CakeWrapper = styled.div`
   margin: 20px;
@@ -94,17 +121,18 @@ export const CakeWrapper = styled.div`
   }
 `;
 
+
 export const ThemeButton = styled.button`
 font-size:1em;
-margin: 1.25em;
-padding:1.25em 1em;
-padding-left:3%;
-padding-right:3%;
+margin: 1.75em;
+padding-left:3.5%;
+padding-right:3.5%;
 border-radius: 30px;
 background-color:${(props) => props.theme.mainColor} ;
 color:${(props) => props.theme.backgroundColor} ;
 margin-left:50px;
 `;
+
 
 export const SearchBarStyled = styled.input`
 margin: 1rem auto;
@@ -112,6 +140,7 @@ padding:0.5rem;
 display:block;
 width: 40%;
 `;
+
 
 export const DetailWrapper = styled.div`
   display: block;
@@ -127,6 +156,7 @@ export const DetailWrapper = styled.div`
     vertical-align: middle;
   }
 `;
+
 
 export const DeleteButtonStyled = styled.p`
 color:${(props) => props.theme.red};
