@@ -5,6 +5,7 @@ import { CreateButtonStyled } from "../../styles";
 import { useState } from "react";
 import cakeStore from "../../stores/cakeStore";
 
+
 const CakeModal = (props) => {
     const [cake, setCake] = useState(
         props.oldCake
@@ -18,7 +19,7 @@ const CakeModal = (props) => {
 
     const handleChange = (event) => {
         setCake({ ...cake, [event.target.name]: event.target.value });
-        //lazm shy hni chna
+        
     };
 
     const handleSubmit = (event) => {

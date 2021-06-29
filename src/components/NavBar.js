@@ -13,7 +13,7 @@ const NavBar = (props) => {
                         <ThemeButton onClick={props.toggleTheme} className="nav-item">
                             {props.currentTheme === "light" ? "Dark" : "Light"} mode
                         </ThemeButton>
-                        <NavLinkStyled to="/menu" className="nav-item">
+                        <NavLinkStyled to="/cakes" className="nav-item">
                             Menu
                         </NavLinkStyled>
                     </ul>

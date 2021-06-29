@@ -1,17 +1,32 @@
-import cakes from "../cakes";
 import { makeAutoObservable } from "mobx";
 import slugify from 'react-slugify';
+import axios from "axios";
 
 class CakeStore {
-    cakes = cakes;
+    cakes = [];
 
     constructor() {
         //when data is updated the components will be rerendered 
         makeAutoObservable(this);
     }
-    handleDelete = (cakeId) => {
-        const updatedCakes = this.cakes.filter(cake => cake.id !== cakeId);
-        this.cakes = updatedCakes;
+    fetchCakes = async () => {
+        try {
+          const response = await axios.get("http://localhost:8000/cakes");
+          this.cakes = response.data;
+        console.log(this.cakes);
+        } catch (error) {
+          console.error("fetchCakes: ", error);
+        }
+      };
+    handleDelete = async (cakeId) => {
+        
+        try{
+          await axios.delete(`http://localhost:8000/cakes/${cakeId}`);
+          const updatedCakes = this.cakes.filter((cake) => cake.id !== cakeId);
+          // this.cakes = updatedCakes;
+        } catch (error) {
+          console.error(error);
+        }
     };
 
     cakeCreate = (newCake) => {
@@ -32,4 +47,6 @@ class CakeStore {
 }
 
 const cakeStore = new CakeStore();
+cakeStore.fetchCakes();
+
 export default cakeStore;

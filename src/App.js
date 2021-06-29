@@ -44,10 +44,10 @@ function App() {
         <GlobalStyle />
         <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
         <Switch>
-          <Route path="/menu/:cakeSlug">
+          <Route path="/cakes/:cakeSlug">
             <CakeDetail setCake={setCake} />
           </Route>
-          <Route path="/menu">
+          <Route path="/cakes">
             <CakeList setCake={setCake} />
           </Route>
           <Route exact path="/">

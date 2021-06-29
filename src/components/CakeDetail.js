@@ -15,7 +15,7 @@ const CakeDetail = (props) => {
 
     //if cake undefined redirect to list page
 
-    if (!cake) return <Redirect to="/menu" />
+    if (!cake) return <Redirect to="/cakes" />
     return (
         <DetailWrapper>
             <img src={cake.image} alt={cake.name} />

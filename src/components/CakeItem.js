@@ -13,7 +13,7 @@ const CakeItem = (props) => {
 
   return (
     <CakeWrapper>
-      <Link to={`/menu/${props.cake.slug}`}>
+      <Link to={`/cakes/${props.cake.slug}`}>
         <img src={props.cake.image} alt={props.cake.name} />
       </Link>
       <p>{props.cake.name}</p>
