@@ -23,7 +23,7 @@ class CakeStore {
         try{
           await axios.delete(`http://localhost:8000/cakes/${cakeId}`);
           const updatedCakes = this.cakes.filter((cake) => cake.id !== cakeId);
-          // this.cakes = updatedCakes;
+          this.cakes = updatedCakes;
         } catch (error) {
           console.error(error);
         }
