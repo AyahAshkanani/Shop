@@ -23,26 +23,42 @@ class CakeStore {
         try{
           await axios.delete(`http://localhost:8000/cakes/${cakeId}`);
           const updatedCakes = this.cakes.filter((cake) => cake.id !== cakeId);
+
           this.cakes = updatedCakes;
+
         } catch (error) {
           console.error(error);
         }
     };
 
-    cakeCreate = (newCake) => {
-        newCake.id = this.cakes.length + 1;
-        newCake.slug = slugify(newCake.name)
-        this.cakes.push(newCake);
+    cakeCreate = async (newCake) => {
+      try{
+        const response = await axios.post("http://localhost:8000/cakes",newCake);
+        console.log(response);
+        this.cakes.push(response.data);
+
+      }catch(error){
+        console.error(error);}
     };
 
     cakeUpdate = (updateCake) => {
-        const cake = this.cakes.find((cake) => cake.id === updateCake.id);
+
+      try {
+        await axios.put(
+          `http://localhost:8000/cakes/${updateCake.id}`,updateCake);
+        const cake = this.cakes.find(
+          (cake) => cake.id === updateCake.id
+        );
         cake.name = updateCake.name;
         cake.price = updateCake.price;
         cake.description = updateCake.description;
         cake.image = updateCake.image;
-
         cake.slug = slugify(updateCake.name);
+      }
+      catch (error) {
+        console.error(error);
+      }
+
     };
 }
 
