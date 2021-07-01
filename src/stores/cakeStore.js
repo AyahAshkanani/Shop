@@ -41,14 +41,11 @@ class CakeStore {
         console.error(error);}
     };
 
-    cakeUpdate = (updateCake) => {
-
+    cakeUpdate = async (updateCake) => {
       try {
         await axios.put(
           `http://localhost:8000/cakes/${updateCake.id}`,updateCake);
-        const cake = this.cakes.find(
-          (cake) => cake.id === updateCake.id
-        );
+        const cake = this.cakes.find((cake) => cake.id === updateCake.id);
         cake.name = updateCake.name;
         cake.price = updateCake.price;
         cake.description = updateCake.description;
