@@ -48,7 +48,7 @@ padding-right:3%;
 border-radius: 30px;
 font-size:130%;
 text-align: center;
-margin-left: 1100px;
+margin-left: 1600px;
 border: 3px solid #808080;
 background-color:${(props) => props.theme.mainColor} ;
 &.active{

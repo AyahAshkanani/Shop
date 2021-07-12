@@ -22,10 +22,21 @@ const CakeModal = (props) => {
         
     };
 
+
+    const handleImage = (event)=> {
+        setCake({ ...cake, image: event.target.files[0]});
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
         if (props.oldCake) cakeStore.cakeUpdate(cake);
         else cakeStore.cakeCreate(cake);
+        setCake({
+            name: "",
+            price: 0,
+            description: "",
+            image: "",
+        });
         props.closeModal();
     };
     return (
@@ -73,10 +84,9 @@ const CakeModal = (props) => {
                         <label>Image</label>
                         <input
                             className="form-control"
-                            type="text"
-                            onChange={handleChange}
+                            type="file"
+                            onChange={handleImage}
                             name="image"
-                            value={cake.image}
                         />
                     </div>
                     <CreateButtonStyled> {props.oldCake ? "Update" : "Add"} </CreateButtonStyled>

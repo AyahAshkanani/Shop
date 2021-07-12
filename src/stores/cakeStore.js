@@ -30,11 +30,13 @@ class CakeStore {
           console.error(error);
         }
     };
-
+    
     cakeCreate = async (newCake) => {
       try{
-        const response = await axios.post("http://localhost:8000/cakes",newCake);
-        console.log(response);
+        const formData = new FormData();
+        for(const key in newCake) formData.append(key,newCake[key]);
+        
+        const response = await axios.post("http://localhost:8000/cakes",formData);
         this.cakes.push(response.data);
 
       }catch(error){
@@ -43,14 +45,15 @@ class CakeStore {
 
     cakeUpdate = async (updateCake) => {
       try {
-        await axios.put(
-          `http://localhost:8000/cakes/${updateCake.id}`,updateCake);
-        const cake = this.cakes.find((cake) => cake.id === updateCake.id);
-        cake.name = updateCake.name;
-        cake.price = updateCake.price;
-        cake.description = updateCake.description;
-        cake.image = updateCake.image;
-        cake.slug = slugify(updateCake.name);
+        const formData = new FormData();
+        for(const key in updateCake) formData.append(key,updateCake[key]);
+        const response = await axios.put(
+          `http://localhost:8000/cakes/${updateCake.id}`,formData);
+
+        const cake = this.cakes.find((cake) => cake.id === response.data.id);
+
+        for(const key in cake) cake[key] = response.data[key];
+
       }
       catch (error) {
         console.error(error);
