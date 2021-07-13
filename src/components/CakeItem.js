@@ -9,6 +9,8 @@ import UpdateButton from "./buttons/UpdateButton";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react";
 
+import authStore from "../stores/authStore";
+
 const CakeItem = (props) => {
 
   return (
@@ -18,8 +20,8 @@ const CakeItem = (props) => {
       </Link>
       <p>{props.cake.name}</p>
       <p className="cake-price">{props.cake.price} KD</p>
-      <UpdateButton cake={props.cake} />
-      <DeleteButton cakeId={props.cake.id} />
+      { authStore.user && (<> <UpdateButton cake={props.cake} />
+      <DeleteButton cakeId={props.cake.id} /></>)}
     </CakeWrapper>
   );
 };

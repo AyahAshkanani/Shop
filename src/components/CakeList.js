@@ -6,7 +6,7 @@ import { observer } from "mobx-react";
 import CakeItem from "./CakeItem"
 import SearchBar from "./SearchBar";
 import CakeModal from "./modals/CakeModal";
-
+import authStore from "../stores/authStore";
 //styles
 import { ListWrapper, AiFillPlusCircleStyled } from "../styles";
 
@@ -28,7 +28,7 @@ const CakeList = () => {
     return (
         <div>
             <SearchBar setQuery={setQuery} />
-            <AiFillPlusCircleStyled size="3em" onClick={openModal} />
+        { authStore.user &&<AiFillPlusCircleStyled size="3em" onClick={openModal} />}
             <CakeModal isOpen={isOpen} closeModal={closeModal} />
             <ListWrapper>{cakeList}</ListWrapper>
         </div>

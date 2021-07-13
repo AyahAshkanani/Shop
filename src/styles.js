@@ -9,6 +9,17 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
+export const AuthButtonStyled = styled.button`
+  font-size:1.2em;
+  margin: 1.75em;
+  padding-left:2%;
+  padding-right:2.5%;
+  border-radius: 30px;
+  margin-left:3px;
+  text-align: center;
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.mainColor};
+`;
 
 export const AiFillPlusCircleStyled = styled(AiFillPlusCircle)`
 color: ${(props) => props.theme.mainColor};
@@ -126,12 +137,12 @@ export const CakeWrapper = styled.div`
 export const ThemeButton = styled.button`
 font-size:1em;
 margin: 1.75em;
-padding-left:3.5%;
-padding-right:3.5%;
+padding-left:3%;
+padding-right:3%;
 border-radius: 30px;
 background-color:${(props) => props.theme.mainColor} ;
 color:${(props) => props.theme.backgroundColor} ;
-margin-left:50px;
+margin-left:10px;
 `;
 
 
