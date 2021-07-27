@@ -1,8 +1,12 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
+import instance from "./instance";
+import bakeryStore from "./bakeryStore";
 
 class CakeStore {
     cakes = [];
+    loading = true;
+
 
     constructor() {
         //when data is updated the components will be rerendered 
@@ -12,7 +16,7 @@ class CakeStore {
         try {
           const response = await axios.get("http://localhost:8000/cakes");
           this.cakes = response.data;
-        console.log(this.cakes);
+          this.loading = false;
         } catch (error) {
           console.error("fetchCakes: ", error);
         }
@@ -20,7 +24,8 @@ class CakeStore {
     handleDelete = async (cakeId) => {
         
         try{
-          await axios.delete(`http://localhost:8000/cakes/${cakeId}`);
+          await instance.delete(`http://localhost:8000/cakes/${cakeId}`);
+          bakeryStore.loading = true;
           const updatedCakes = this.cakes.filter((cake) => cake.id !== cakeId);
 
           this.cakes = updatedCakes;
@@ -30,13 +35,14 @@ class CakeStore {
         }
     };
     
-    cakeCreate = async (newCake) => {
+    cakeCreate = async (newCake, bakery) => {
       try{
         const formData = new FormData();
         for(const key in newCake) formData.append(key,newCake[key]);
         
-        const response = await axios.post("http://localhost:8000/cakes",formData);
+        const response = await axios.post("http://localhost:8000/bakeries/${bakery.id}/cakes",formData);
         this.cakes.push(response.data);
+        bakery.cakes.push({id: response.data.id });
 
       }catch(error){
         console.error(error);}
@@ -59,6 +65,8 @@ class CakeStore {
       }
 
     };
+    getCakeById = (cakeId) =>
+    this.cakes.find((cake) => cake.id === cakeId);
 }
 
 const cakeStore = new CakeStore();

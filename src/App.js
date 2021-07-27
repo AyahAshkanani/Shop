@@ -1,9 +1,11 @@
 import './App.css';
 // components
-import CakeList from "./components/CakeList";
-import CakeDetail from "./components/CakeDetail";
-import Home from "./components/Home"
+import Routes from './components/Routes';
 import NavBar from "./components/NavBar"
+
+// stores
+import bakeryStore from "./stores/bakeryStore";
+import cakeStore from "./stores/cakeStore";
 
 //styles
 import { GlobalStyle } from "./styles";
@@ -13,7 +15,8 @@ import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 
 //Libraries
-import { Route, Switch } from "react-router";
+
+import { observer } from 'mobx-react';
 
 const theme = {
   light: {
@@ -43,19 +46,13 @@ function App() {
       <ThemeProvider theme={theme[currentTheme]}>
         <GlobalStyle />
         <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
-        <Switch>
-          <Route path="/cakes/:cakeSlug">
-            <CakeDetail setCake={setCake} />
-          </Route>
-          <Route path="/cakes">
-            <CakeList setCake={setCake} />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
+        {bakeryStore.loading || cakeStore.loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <Routes />
+        )}
       </ThemeProvider>
     </div>
   );
 }
-export default App;
+export default observer(App);

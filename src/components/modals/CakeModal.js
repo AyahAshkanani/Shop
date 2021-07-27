@@ -30,7 +30,7 @@ const CakeModal = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (props.oldCake) cakeStore.cakeUpdate(cake);
-        else cakeStore.cakeCreate(cake);
+        else cakeStore.cakeCreate(cake, props.bakery);
         setCake({
             name: "",
             price: 0,

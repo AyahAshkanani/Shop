@@ -1,5 +1,5 @@
 //MobX
-import cakeStore from "../stores/cakeStore";
+
 import { observer } from "mobx-react";
 
 //components
@@ -13,7 +13,7 @@ import { ListWrapper, AiFillPlusCircleStyled } from "../styles";
 //useState
 import { useState } from "react";
 
-const CakeList = () => {
+const CakeList = ({cakes, bakery}) => {
 
     const [query, setQuery] = useState("");
     const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const CakeList = () => {
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
 
-    const cakeList = cakeStore.cakes.filter((cake) => cake.name.toLowerCase().includes(query.toLowerCase()))
+    const cakeList =  cakes.filter((cake) => cake.name.toLowerCase().includes(query.toLowerCase()))
         .map((cake) => (
             <CakeItem cake={cake} key={cake.id} />
         ));
@@ -29,7 +29,7 @@ const CakeList = () => {
         <div>
             <SearchBar setQuery={setQuery} />
         { authStore.user &&<AiFillPlusCircleStyled size="3em" onClick={openModal} />}
-            <CakeModal isOpen={isOpen} closeModal={closeModal} />
+            <CakeModal isOpen={isOpen} closeModal={closeModal} bakery={bakery}/>
             <ListWrapper>{cakeList}</ListWrapper>
         </div>
     );

@@ -14,15 +14,18 @@ const NavBar = (props) => {
                     <img alt="" src={whisk} width="100" />
                 </Logo>
                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <ThemeButton onClick={props.toggleTheme} className="nav-item">
-                   {props.currentTheme === "light" ? "Dark" : "Light"} mode
-                </ThemeButton>
+                
                 
                 {authStore.user? (<p>hello {authStore.user.username}</p> ):(
                 <>
                 <SigninButton/>
                  <SignupButton/> </>)}
-                <NavLinkStyled to="/cakes" className="nav-item">Menu
+                 <ThemeButton onClick={props.toggleTheme} className="nav-item">
+                   {props.currentTheme === "light" ? "Dark" : "Light"} mode
+                </ThemeButton>
+                <NavLinkStyled to="/cakes" className="nav-item"> Cakes 
+                 </NavLinkStyled>
+                 <NavLinkStyled to="/bakeries" className="nav-item">Bakeries
                  </NavLinkStyled>
                 </ul>
             </div>
